@@ -1,22 +1,22 @@
 const express = require("express");
-const router = require("./src/routers");
-
 const app = express();
-const port = process.env.PORT || 3001;
+const router = require("./src/routers");
 
 // #region  config process
 require("dotenv").config();
 require("./src/db/dbConnection");
 // #endregion
 
+const port = process.env.PORT || 3001;
+
 // #region middleware
 app.use(express.json());
-
 // #endregion
 
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   res.json({ message: "Welcome" });
 });
+
 app.use("/api", router);
 
 app.listen(port, () => {

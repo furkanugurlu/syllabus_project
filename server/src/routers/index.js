@@ -1,7 +1,9 @@
 const router = require("express").Router();
 
-const teacher = require("./teacher.routers");
+const instructor = require("./instructor.routers");
+const constraint = require("./constraint.routers");
 
-router.use(teacher);
+router.use(instructor);
+router.use(constraint);
 
 module.exports = router;
